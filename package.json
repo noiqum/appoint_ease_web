@@ -53,11 +53,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-    
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint:fix && npm run format"
     }
+  },
+  "devDependencies": {
+    "sass": "^1.65.1"
   }
 }
