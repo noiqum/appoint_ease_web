@@ -52,11 +52,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "husky": {
-      "hooks": {
-        "pre-commit": "npm run lint:fix && npm run format"
-      }
+    ]
+    
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix && npm run format"
     }
   }
 }
