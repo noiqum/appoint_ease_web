@@ -5,7 +5,7 @@ import Logo from './logo' // Adjust the import path as needed
 
 // Define the Meta information for your story
 const meta: Meta = {
-  title: 'Example/Logo',
+  title: 'Components/Logo',
   component: Logo,
 }
 

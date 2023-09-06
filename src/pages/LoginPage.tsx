@@ -6,7 +6,7 @@ export default function LoginPage() {
   return (
     <div data-testid='LoginPage' className='LoginPage'>
       <p>Loginpage</p>
-      <Button variant='outline'>Button</Button>
+      <Button label='Button' variant='outline'></Button>
     </div>
   )
 }
