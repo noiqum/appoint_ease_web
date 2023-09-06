@@ -59,7 +59,7 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type='password' {...field} />
+                <Input placeholder='Password' type='password' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
