@@ -4,6 +4,9 @@ import * as z from 'zod'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../Form/Form'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
+import { useDispatch } from 'react-redux'
+import { authActions } from '../../store/index'
+import { login } from '../../Api/Services'
 
 const formSchema = z.object({
   email: z
@@ -21,6 +24,7 @@ const formSchema = z.object({
 })
 
 export function LoginForm() {
+  const dispatch = useDispatch()
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -31,10 +35,20 @@ export function LoginForm() {
   })
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
+    const user = await login({
+      email: values.email,
+      password: values.password,
+    })
+      .then((res) => res)
+      .catch((err) => console.log(err))
+
+    if (user) {
+      dispatch(authActions.setUser(user))
+      dispatch(authActions.setLogin(true))
+    }
   }
   return (
     <Form {...form}>
