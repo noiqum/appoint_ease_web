@@ -1,17 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './LoginPage.scss'
-
 import Logo from '../components/Logo/logo'
 import { LoginForm } from '../components/LoginForm/LoginForm'
-import { login } from '../Api/Services'
 
 export default function LoginPage() {
-  useEffect(() => {
-    login({
-      email: 'testhccm@gmail.com',
-      password: '123456',
-    })
-  }, [])
   return (
     <div
       data-testid='LoginPage'
