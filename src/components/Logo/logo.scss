@@ -1,3 +1,9 @@
 .Logo {
   display: block;
+  &.link {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

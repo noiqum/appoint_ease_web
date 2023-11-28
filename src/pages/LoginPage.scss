@@ -18,5 +18,11 @@
         width: 100%;
       }
     }
+    & b{
+      transition: all 0.3s ease-in-out;
+      &:hover {
+       border-bottom: 1px solid navy;
+      }
+    }
   }
 }

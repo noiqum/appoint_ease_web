@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import { Provider } from 'react-redux'
 import { store } from './store/index'
+import HomePage from './pages/HomePage'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <Provider store={store}>
       <BrowserRouter basename='/'>
         <Routes>
+          <Route path='/' index Component={HomePage}></Route>
           <Route path='/login' Component={LoginPage}></Route>
         </Routes>
       </BrowserRouter>
