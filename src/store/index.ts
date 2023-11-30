@@ -30,11 +30,10 @@ export const authSlice = createSlice({
     setLogin(state, action) {
       state.isLogin = action.payload.isLogin
     },
-    setLogout(state){
-      state.user=null
-      state.isLogin=false
-    }
-    
+    setLogout(state) {
+      state.user = null
+      state.isLogin = false
+    },
   },
 })
 export const store = configureStore({

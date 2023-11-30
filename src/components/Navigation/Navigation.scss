@@ -1,0 +1,128 @@
+.navigation {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 2vh 0;
+  font-size: calc(4px + 3vw);
+  @media screen and (min-width: 1024px) {
+    font-size: calc(4px + 1vw);
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    & > .Logo {
+      margin-right: 10px;
+      max-width: 20%;
+    }
+  }
+
+  &__menu {
+    display: none;
+    & > ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      & > li {
+        margin-right: 20px;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        &:last-child {
+          margin-right: 0;
+        }
+        cursor: pointer;
+        &:hover {
+          border-bottom: 1px solid #111d57;
+        }
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
+  }
+  & a,
+  &__aside a {
+    text-decoration: none;
+    background-color: #111d57;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10%;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__aside a {
+    margin-left: 0;
+  }
+  &__hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+    &.active {
+      .navigation__hamburger__line:nth-child(1) {
+        transform: translateY(14px) rotate(45deg);
+      }
+
+      .navigation__hamburger__line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .navigation__hamburger__line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+    &__line {
+      background-color: #111d57;
+      height: 3px;
+      width: 30px;
+      transition: transform 0.3s ease;
+    }
+  }
+  &__aside {
+    width: 100%;
+    padding: 10% 5%;
+    position: absolute;
+    top: 10vh;
+    height: 90vh;
+    left: 0;
+    background-color: #ced4da;
+    color: #111d57;
+    font-size: 1.5rem;
+    transform: translateX(-110%);
+    transition: all 0.6s ease-in-out;
+    & > ul {
+      list-style: none;
+      & > li {
+        margin-bottom: 3vh;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        &:last-child {
+          margin-right: 0;
+        }
+        cursor: pointer;
+        &:hover {
+          border-bottom: 1px solid #111d57;
+        }
+      }
+    }
+    &.active {
+      transform: translateX(0);
+    }
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+}
