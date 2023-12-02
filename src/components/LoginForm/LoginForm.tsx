@@ -4,8 +4,8 @@ import * as z from 'zod'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../Form/Form'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
-import { useDispatch } from 'react-redux'
-import { authActions } from '../../store/index'
+import { useAppDispatch } from '../../store/hooks'
+import { authActions } from '../../store/authSlice'
 import { login } from '../../Api/Services'
 
 const formSchema = z.object({
@@ -24,7 +24,7 @@ const formSchema = z.object({
 })
 
 export function LoginForm() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './Navigation.scss'
 import Logo from '../Logo/logo'
-import { useSelector } from 'react-redux'
-import { store } from '@/src/store'
+import { useAppSelector } from '../../store/hooks'
 import { Link } from 'react-router-dom'
+import { RootState } from '../../store'
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const isLogin = useSelector((state: ReturnType<typeof store.getState>) => state.auth.isLogin)
+  const isLogin = useAppSelector((state: RootState) => state.auth.isLogin)
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }

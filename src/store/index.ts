@@ -1,44 +1,17 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit'
-import { TloginResponse } from '../Api/ServiceType'
+import { configureStore, combineReducers, PreloadedState } from '@reduxjs/toolkit'
+import { authSlice } from './authSlice'
 
-export type TCredential = {
-  accessToken: string | null
-  refreshToken: string | null
-}
-
-type TInitialAuthState = {
-  user: TloginResponse | null
-  credential: TCredential
-  isLogin: boolean
-}
-
-const initialState: TInitialAuthState = {
-  user: null,
-  credential: {
-    accessToken: null,
-    refreshToken: null,
-  },
-  isLogin: false,
-}
-export const authSlice = createSlice({
-  name: 'AuthStore',
-  initialState,
-  reducers: {
-    setUser(state, action) {
-      state.user = action.payload.user
-    },
-    setLogin(state, action) {
-      state.isLogin = action.payload.isLogin
-    },
-    setLogout(state) {
-      state.user = null
-      state.isLogin = false
-    },
-  },
+const rootReducer = combineReducers({
+  auth: authSlice.reducer,
 })
-export const store = configureStore({
-  reducer: {
-    auth: authSlice.reducer,
-  },
-})
-export const authActions = authSlice.actions
+
+export function setupStore(preloadedState: PreloadedState<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  })
+}
+export const store = setupStore({})
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch']
