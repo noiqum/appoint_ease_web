@@ -4,9 +4,12 @@ import * as z from 'zod'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../Form/Form'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
-import { useAppDispatch } from '../../store/hooks'
+
 import { authActions } from '../../store/authSlice'
 import { login } from '../../Api/Services'
+
+import { useAppSelector, useAppDispatch } from '../../store/hooks'
+import { useEffect } from 'react'
 
 const formSchema = z.object({
   email: z
@@ -25,6 +28,9 @@ const formSchema = z.object({
 
 export function LoginForm() {
   const dispatch = useAppDispatch()
+  const userData = useAppSelector((state) => state.auth.user)
+  console.log(userData)
+  // ✅ This hook will be type-safe and validated.
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,6 +56,11 @@ export function LoginForm() {
       dispatch(authActions.setLogin(true))
     }
   }
+  useEffect(() => {
+    if (userData) {
+      console.log(userData)
+    }
+  }, [userData])
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
