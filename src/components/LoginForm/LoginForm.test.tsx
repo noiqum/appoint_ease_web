@@ -1,7 +1,7 @@
 import React from 'react'
 import { LoginForm } from './LoginForm'
 import { renderWithProviders } from '../../test-utils'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
 
 describe('LoginForm', () => {
   it('renders Email Label', () => {
@@ -50,5 +50,24 @@ describe('LoginForm', () => {
     fireEvent.click(signInButton)
     const passwordError = await findByText('Password must be at least 8 characters')
     expect(passwordError).toBeInTheDocument()
+  })
+  it('update loader process background animation while login service call processing', async () => {
+    const { container, getByText, getByPlaceholderText } = renderWithProviders(
+      <LoginForm></LoginForm>,
+    )
+    const signInButton = getByText('Sign In')
+    const emailInput = getByPlaceholderText('Email')
+    const passwordInput = getByPlaceholderText('Password')
+
+    expect(container.querySelector('.loader')).toBeInTheDocument()
+    expect(container.querySelector('.loader.active')).toBeNull()
+
+    fireEvent.change(emailInput, { target: { value: 'mike@gmail.com' } })
+    fireEvent.change(passwordInput, { target: { value: 'test1234' } })
+    fireEvent.click(signInButton)
+
+    await waitFor(() => {
+      expect(container.querySelector('.loader.active')).toBeInTheDocument()
+    })
   })
 })

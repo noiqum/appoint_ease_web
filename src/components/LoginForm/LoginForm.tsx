@@ -7,6 +7,8 @@ import { Input } from '../Input/Input'
 import { authActions } from '../../store/authSlice'
 import { login } from '../../Api/Services'
 import { useAppDispatch } from '../../store/hooks'
+import { useState } from 'react'
+import './LoginForm.scss'
 
 const formSchema = z.object({
   email: z
@@ -25,7 +27,7 @@ const formSchema = z.object({
 
 export function LoginForm() {
   const dispatch = useAppDispatch()
-
+  const [loginServiceCallProcess, setProcess] = useState<boolean>(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,12 +37,14 @@ export function LoginForm() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setProcess(true)
     const user = await login({
       email: values.email,
       password: values.password,
     })
       .then((res) => res)
       .catch((err) => console.log(err))
+      .finally(() => setProcess(false))
 
     if (user) {
       dispatch(authActions.setUser(user))
@@ -51,6 +55,7 @@ export function LoginForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+        <div className={loginServiceCallProcess ? 'loader active' : 'loader'}></div>
         <FormField
           control={form.control}
           name='email'
@@ -77,7 +82,8 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type='submit' label='Sign In'></Button>
+
+        <Button disabled={loginServiceCallProcess} type='submit' label='Sign In'></Button>
       </form>
     </Form>
   )
