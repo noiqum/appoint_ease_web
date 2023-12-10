@@ -30,6 +30,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "framer-motion": "^10.16.16",
     "husky": "^8.0.3",
     "lucide-react": "^0.274.0",
     "postcss-loader": "^7.3.3",

@@ -1,13 +1,17 @@
+import { AnimatePresence } from 'framer-motion'
 import HomePage from '../../pages/HomePage'
 import LoginPage from '../../pages/LoginPage'
-import { Route, Routes as RouterRoutes } from 'react-router-dom'
+import { Route, Routes as RouterRoutes, useLocation } from 'react-router-dom'
 
 const Routes = () => {
+  const location = useLocation()
   return (
-    <RouterRoutes>
-      <Route path='/' index Component={HomePage}></Route>
-      <Route path='/login' Component={LoginPage}></Route>
-    </RouterRoutes>
+    <AnimatePresence mode='wait'>
+      <RouterRoutes location={location} key={location.pathname}>
+        <Route path='/' index Component={HomePage}></Route>
+        <Route path='/login' Component={LoginPage}></Route>
+      </RouterRoutes>
+    </AnimatePresence>
   )
 }
 

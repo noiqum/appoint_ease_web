@@ -1,0 +1,15 @@
+.slide-in,
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111d57;
+}
+.slide-in {
+  transform-origin: bottom;
+}
+.slide-out {
+  transform-origin: top;
+}
