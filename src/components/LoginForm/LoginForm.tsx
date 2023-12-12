@@ -9,6 +9,7 @@ import { login } from '../../Api/Services'
 import { useAppDispatch } from '../../store/hooks'
 import { useState } from 'react'
 import './LoginForm.scss'
+import { Link } from 'react-router-dom'
 
 const formSchema = z.object({
   email: z
@@ -84,6 +85,12 @@ export function LoginForm() {
         />
 
         <Button disabled={loginServiceCallProcess} type='submit' label='Sign In'></Button>
+        <div className='w-full flex my-1 justify-end items-center'>
+          Need An Account ?
+          <Link className=' text-lg font-semibold underline ml-1' to={'/register'}>
+            Register
+          </Link>
+        </div>
       </form>
     </Form>
   )

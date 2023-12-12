@@ -1,7 +1,13 @@
 import React from 'react'
 import { LoginForm } from './LoginForm'
 import { renderWithProviders } from '../../test-utils'
-import { fireEvent, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import LoginPage from '../../pages/LoginPage'
+import RegisterPage from '../../pages/RegisterPage'
+import { Provider } from 'react-redux'
+import { setupStore } from '../../store/index'
 
 describe('LoginForm', () => {
   it('renders Email Label', () => {
@@ -68,6 +74,27 @@ describe('LoginForm', () => {
 
     await waitFor(() => {
       expect(container.querySelector('.loader.active')).toBeInTheDocument()
+    })
+  })
+  it('render register link', () => {
+    const { getByText } = renderWithProviders(<LoginForm />)
+    const registerDirectLink = getByText('Register')
+    expect(registerDirectLink).toBeInTheDocument()
+  })
+  it('redirects to register path if user clicks register link', async () => {
+    render(
+      <Provider store={setupStore({})}>
+        <MemoryRouter initialEntries={['/login']}>
+          <Routes>
+            <Route path='/login' Component={LoginPage}></Route>
+            <Route path='/register' Component={RegisterPage}></Route>
+          </Routes>
+        </MemoryRouter>
+      </Provider>,
+    )
+    fireEvent.click(screen.getByText('Register'))
+    await waitFor(() => {
+      expect(screen.getByText('Sign up for AppointEase')).toBeInTheDocument()
     })
   })
 })
