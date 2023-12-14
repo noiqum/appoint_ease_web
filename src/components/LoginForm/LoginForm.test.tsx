@@ -2,12 +2,20 @@ import React from 'react'
 import { LoginForm } from './LoginForm'
 import { renderWithProviders } from '../../test-utils'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from '../../pages/LoginPage'
 import RegisterPage from '../../pages/RegisterPage'
 import { Provider } from 'react-redux'
 import { setupStore } from '../../store/index'
+import DashBoardPage from '../../pages/DashBoardPage'
+
+// mock useNavigate
+const mockedUsedNavigate = jest.fn()
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockedUsedNavigate, // Return an empty jest function to test whether it was called or not...I'm not depending on the results so no need to put in a return value
+}))
 
 describe('LoginForm', () => {
   it('renders Email Label', () => {
@@ -95,6 +103,30 @@ describe('LoginForm', () => {
     fireEvent.click(screen.getByText('Register'))
     await waitFor(() => {
       expect(screen.getByText('Sign up for AppointEase')).toBeInTheDocument()
+    })
+  })
+  it('redirect to /dashboard after successful login ', async () => {
+    render(
+      <Provider store={setupStore({})}>
+        <MemoryRouter initialEntries={['/login']}>
+          <Routes>
+            <Route path='/login' Component={LoginPage}></Route>
+            <Route path='/dashboard' Component={DashBoardPage}></Route>
+          </Routes>
+        </MemoryRouter>
+      </Provider>,
+    )
+
+    const signInButton = screen.getByText('Sign In')
+    const emailInput = screen.getByPlaceholderText('Email')
+    const passwordInput = screen.getByPlaceholderText('Password')
+
+    fireEvent.change(emailInput, { target: { value: 'mike@gmail.com' } })
+    fireEvent.change(passwordInput, { target: { value: 'test1234' } })
+    fireEvent.click(signInButton)
+
+    await waitFor(() => {
+      expect(mockedUsedNavigate).toHaveBeenCalledTimes(1)
     })
   })
 })

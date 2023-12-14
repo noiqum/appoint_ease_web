@@ -9,7 +9,7 @@ import { login } from '../../Api/Services'
 import { useAppDispatch } from '../../store/hooks'
 import { useState } from 'react'
 import './LoginForm.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const formSchema = z.object({
   email: z
@@ -29,6 +29,7 @@ const formSchema = z.object({
 export function LoginForm() {
   const dispatch = useAppDispatch()
   const [loginServiceCallProcess, setProcess] = useState<boolean>(false)
+  const navigate = useNavigate()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,6 +51,7 @@ export function LoginForm() {
     if (user) {
       dispatch(authActions.setUser(user))
       dispatch(authActions.setLogin(true))
+      navigate('/dashboard')
     }
   }
 
