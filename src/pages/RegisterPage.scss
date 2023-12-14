@@ -1,0 +1,28 @@
+.RegisterPage {
+  padding: 10vh 5vh;
+  &__frame {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > h2 {
+      margin: 2vh 0px;
+    }
+    & > form {
+      width: 100%;
+      @media screen and (min-width: 768px) {
+        width: 40%;
+        max-width: 480px;
+      }
+      & > button {
+        width: 100%;
+      }
+    }
+    & b {
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        border-bottom: 1px solid navy;
+      }
+    }
+  }
+}
