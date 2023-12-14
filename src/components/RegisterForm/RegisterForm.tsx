@@ -8,7 +8,6 @@ import { authActions } from '../../store/authSlice'
 import { register } from '../../Api/Services'
 import { useAppDispatch } from '../../store/hooks'
 import { useState } from 'react'
-import './RegisterForm.scss'
 import { Link, useNavigate } from 'react-router-dom'
 
 const formSchema = z.object({
