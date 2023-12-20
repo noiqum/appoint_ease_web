@@ -11,7 +11,7 @@ const CustomTitle: React.FC<CustomTitleProps> = ({ level, nestedElement }) => {
 
   const HeadingTag = `h${validatedLevel}` as keyof JSX.IntrinsicElements
 
-  return <HeadingTag className={`Title ${HeadingTag}`}>{nestedElement}</HeadingTag>
+  return <HeadingTag className={`CustomTitle ${HeadingTag}`}>{nestedElement}</HeadingTag>
 }
 
 export default CustomTitle
