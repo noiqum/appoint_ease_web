@@ -6,7 +6,7 @@ import './HomePage.scss'
 export default function HomePage() {
   return (
     <Transition>
-      <div className='HomePage bg-lightgrey w-full h-screen overflow-hidden flex justify-center'>
+      <div className='HomePage bg-lightgrey w-full min-h-screen flex justify-center'>
         <Navigation />
         <Hero />
       </div>
