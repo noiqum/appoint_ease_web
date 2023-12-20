@@ -108,8 +108,8 @@ export function RegisterForm() {
         <Button disabled={registerServiceCallProcess} type='submit' label='Sign Up'></Button>
         <div className='w-full flex my-1 justify-end items-center'>
           Already have an Account ?
-          <Link className=' text-lg font-semibold underline ml-1' to={'/login'}>
-            Login
+          <Link className='text-lg font-semibold underline ml-1' to={'/login'}>
+            Log In
           </Link>
         </div>
       </form>
