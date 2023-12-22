@@ -4,13 +4,11 @@ import { createSlice } from '@reduxjs/toolkit'
 type TInitialAuthState = {
   user: TloginResponse | null
   isLogin: boolean
-  counter: number
 }
 
 const initialState: TInitialAuthState = {
   user: null,
   isLogin: false,
-  counter: 0,
 }
 
 export const authSlice = createSlice({
