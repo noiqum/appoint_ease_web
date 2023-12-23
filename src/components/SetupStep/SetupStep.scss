@@ -1,0 +1,65 @@
+.SetupStep {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  color: #111d57;
+  @media screen and (min-width: 1024px) {
+    flex: unset;
+    flex-basis: 32%;
+  }
+  &__box,
+  &__text {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    @media screen and (min-width: 1440px) {
+      width: 80%;
+    }
+  }
+  &__box {
+    align-items: center;
+    box-shadow: 0px 12px 35px rgba(30, 155, 255, 0.14);
+    padding: 0.75rem;
+    border-radius: 1rem;
+    min-height: 40vh;
+    position: relative;
+
+    &__step {
+      position: absolute;
+      top: -8%;
+      left: -5%;
+      font-size: 2vw;
+      padding: 0.5vw 1.5vw;
+      background-color: #e96b6d;
+      color: white;
+      font-weight: 900;
+      border-radius: 6px;
+    }
+
+    &__icon {
+      margin: 2% 0;
+    }
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: inherit;
+      margin-top: 4%;
+    }
+    &__visual {
+      margin-top: 4%;
+      margin-bottom: 3%;
+    }
+  }
+  &__text {
+    &__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0.75rem 0;
+    }
+    &__parag {
+      color: #324682;
+    }
+  }
+}
