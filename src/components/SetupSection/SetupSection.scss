@@ -1,0 +1,21 @@
+.SetupSection {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1280px;
+  min-height: 100vh;
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    margin-top: 3vh;
+  }
+  & h2 {
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    color: #111d57;
+    @media screen and (min-width: 1024px) {
+      font-size: 48px;
+      line-height: 56px;
+    }
+  }
+}
