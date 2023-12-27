@@ -1,0 +1,44 @@
+.SideMenu {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #1e9bff, #1376f3);
+  width: 70%;
+  padding: 5%;
+  @media screen and (min-width: 768px) {
+    width: 90px;
+    padding: 0.5rem;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+    }
+    &__wrapper {
+      width: 12vw;
+      height: 12vw;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background-color: #111d57;
+      padding: 0.5rem;
+      @media screen and (min-width: 768px) {
+        width: 45px;
+        height: 45px;
+      }
+    }
+    &__company {
+      font-size: 85%;
+      padding-left: 5%;
+      font-weight: 700;
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+}
