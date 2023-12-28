@@ -1,0 +1,30 @@
+.Profile {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  &__placeholder {
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 999px;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: larger;
+    color: #1e9bff;
+    background-color: beige;
+    display: grid;
+    place-items: center;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.5rem;
+    font-size: 14px;
+    color: white;
+    & > span:first-child {
+      text-transform: capitalize;
+    }
+  }
+}
