@@ -7,17 +7,20 @@ import Profile from '../Profile/Profile'
 function SideMenu() {
   return (
     <div className='SideMenu'>
-      <div className='SideMenu__logo'>
-        <div className='SideMenu__logo__wrapper'>
-          <Logo></Logo>
+      <div className='SideMenu__content'>
+        <div className='SideMenu__logo'>
+          <div className='SideMenu__logo__wrapper'>
+            <Logo></Logo>
+          </div>
+          <div className='SideMenu__logo__company'>Appointment Ease</div>
         </div>
-        <div className='SideMenu__logo__company'>Appointment Ease</div>
+        <div className='SideMenu__links'>
+          <SideMenuLink path={PathEnum.appointment}></SideMenuLink>
+          <SideMenuLink path={PathEnum.calendar}></SideMenuLink>
+          <SideMenuLink path={PathEnum.settings}></SideMenuLink>
+        </div>
       </div>
-      <div className='SideMenu__links'>
-        <SideMenuLink path={PathEnum.appointment}></SideMenuLink>
-        <SideMenuLink path={PathEnum.calendar}></SideMenuLink>
-        <SideMenuLink path={PathEnum.settings}></SideMenuLink>
-      </div>
+
       <Profile></Profile>
     </div>
   )
