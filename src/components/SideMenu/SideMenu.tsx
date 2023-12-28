@@ -1,6 +1,8 @@
 import React from 'react'
 import Logo from '../Logo/logo'
 import './SideMenu.scss'
+import SideMenuLink, { PathEnum } from '../SideMenuLink/SideMenuLink'
+import Profile from '../Profile/Profile'
 
 function SideMenu() {
   return (
@@ -11,6 +13,12 @@ function SideMenu() {
         </div>
         <div className='SideMenu__logo__company'>Appointment Ease</div>
       </div>
+      <div className='SideMenu__links'>
+        <SideMenuLink path={PathEnum.appointment}></SideMenuLink>
+        <SideMenuLink path={PathEnum.calendar}></SideMenuLink>
+        <SideMenuLink path={PathEnum.settings}></SideMenuLink>
+      </div>
+      <Profile></Profile>
     </div>
   )
 }
