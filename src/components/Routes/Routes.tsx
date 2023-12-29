@@ -11,13 +11,13 @@ const Routes = () => {
   const location = useLocation()
   return (
     <AnimatePresence mode='wait'>
-      <RouterRoutes location={location} key={location.pathname}>
-        <Route path='/' index Component={HomePage}></Route>
-        <Route path='/login' Component={LoginPage}></Route>
-        <Route path='/register' Component={RegisterPage}></Route>
-        <Route path='/dashboard' Component={DashBoardPage}>
-          <Route path='/dashboard/appointments' Component={Appointments}></Route>
-          <Route path='/dashboard/calendar' Component={Arrange}></Route>
+      <RouterRoutes location={location} key={location.pathname.split('/')[1]}>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/dashboard' element={<DashBoardPage />}>
+          <Route path='appointments' element={<Appointments />} />
+          <Route path='calendar' element={<Arrange />} />
         </Route>
       </RouterRoutes>
     </AnimatePresence>
