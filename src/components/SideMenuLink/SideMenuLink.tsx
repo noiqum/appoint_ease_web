@@ -44,7 +44,10 @@ function SideMenuLink({ path }: ISideMenuLinkProps) {
     },
   }
   return (
-    <div className={`SideMenuLink ${isMenuStatusActive()}`} onClick={() => navigate(path)}>
+    <div
+      className={`SideMenuLink ${isMenuStatusActive()}`}
+      onClick={() => navigate(`/dashboard${path}`)}
+    >
       <img src={sideMenuData[path].icon} alt='' /> <span>{sideMenuData[path].name}</span>
     </div>
   )

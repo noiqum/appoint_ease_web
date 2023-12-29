@@ -7,6 +7,7 @@ import { RootState } from '../store'
 import { sideMenuActions } from '../store/sideMenuSlice'
 import MenuIcon from '../assets/svg/menu.svg'
 import './DashBoardPage.scss'
+import { Outlet } from 'react-router-dom'
 
 function DashBoardPage() {
   const { width } = useWindowSize()
@@ -24,6 +25,9 @@ function DashBoardPage() {
     <Transition>
       <div className='DashBoardPage' data-testid='DashBoardPage'>
         <SideMenu isOpen={width >= 768 ? true : isOpen}></SideMenu>
+        <div className='DashBoardPage__main'>
+          <Outlet></Outlet>
+        </div>
         <div onClick={sidemenuCloseAction} className='DashBoardPage__cover'></div>
         <div onClick={sidemenuOpenAction} className='DashBoardPage__sidemenuToggle'>
           <img src={MenuIcon} alt='sidemenu toggle icon' />

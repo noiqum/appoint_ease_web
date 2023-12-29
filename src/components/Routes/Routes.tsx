@@ -4,6 +4,7 @@ import LoginPage from '../../pages/LoginPage'
 import { Route, Routes as RouterRoutes, useLocation } from 'react-router-dom'
 import RegisterPage from '../../pages/RegisterPage'
 import DashBoardPage from '../../pages/DashBoardPage'
+import Appointments from '../Appointments/Appointments'
 
 const Routes = () => {
   const location = useLocation()
@@ -13,7 +14,9 @@ const Routes = () => {
         <Route path='/' index Component={HomePage}></Route>
         <Route path='/login' Component={LoginPage}></Route>
         <Route path='/register' Component={RegisterPage}></Route>
-        <Route path='/dashboard' Component={DashBoardPage}></Route>
+        <Route path='/dashboard' Component={DashBoardPage}>
+          <Route path='/dashboard/appointments' Component={Appointments}></Route>
+        </Route>
       </RouterRoutes>
     </AnimatePresence>
   )
