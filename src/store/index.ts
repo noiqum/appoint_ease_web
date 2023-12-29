@@ -1,8 +1,10 @@
 import { configureStore, combineReducers, PreloadedState } from '@reduxjs/toolkit'
 import { authSlice } from './authSlice'
+import { sideMenuSlice } from './sideMenuSlice'
 
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
+  sidemenu: sideMenuSlice.reducer,
 })
 
 export function setupStore(preloadedState: PreloadedState<RootState>) {

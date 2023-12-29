@@ -3,10 +3,13 @@ import Logo from '../Logo/logo'
 import './SideMenu.scss'
 import SideMenuLink, { PathEnum } from '../SideMenuLink/SideMenuLink'
 import Profile from '../Profile/Profile'
+interface ISideMenuProps {
+  isOpen: boolean
+}
 
-function SideMenu() {
+function SideMenu({ isOpen }: ISideMenuProps) {
   return (
-    <div className='SideMenu'>
+    <div className={`SideMenu ${isOpen ? 'open' : 'close'}`}>
       <div className='SideMenu__content'>
         <div className='SideMenu__logo'>
           <div className='SideMenu__logo__wrapper'>
