@@ -5,6 +5,7 @@ import { Route, Routes as RouterRoutes, useLocation } from 'react-router-dom'
 import RegisterPage from '../../pages/RegisterPage'
 import DashBoardPage from '../../pages/DashBoardPage'
 import Appointments from '../Appointments/Appointments'
+import Arrange from '../Arrange/Arrange'
 
 const Routes = () => {
   const location = useLocation()
@@ -16,6 +17,7 @@ const Routes = () => {
         <Route path='/register' Component={RegisterPage}></Route>
         <Route path='/dashboard' Component={DashBoardPage}>
           <Route path='/dashboard/appointments' Component={Appointments}></Route>
+          <Route path='/dashboard/calendar' Component={Arrange}></Route>
         </Route>
       </RouterRoutes>
     </AnimatePresence>
