@@ -8,9 +8,11 @@
   background: linear-gradient(to bottom, #1e9bff, #1376f3);
   width: 70%;
   padding: 5%;
-  position: relative;
+  position: absolute;
   z-index: 10;
   transition: all 0.3s ease-out;
+  top: 0;
+  left: 0;
   &.close {
     transform: translateX(-110%);
   }
@@ -19,6 +21,9 @@
     transform: translateX(0);
   }
   @media screen and (min-width: 768px) {
+    position: relative;
+    top: unset;
+    left: unset;
     width: 100px;
     padding: 0.5rem;
   }

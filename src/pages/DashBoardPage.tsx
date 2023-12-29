@@ -28,7 +28,10 @@ function DashBoardPage() {
         <div className='DashBoardPage__main'>
           <Outlet></Outlet>
         </div>
-        <div onClick={sidemenuCloseAction} className='DashBoardPage__cover'></div>
+        <div
+          onClick={sidemenuCloseAction}
+          className={`DashBoardPage__cover ${isOpen ? 'open' : 'close'}`}
+        ></div>
         <div onClick={sidemenuOpenAction} className='DashBoardPage__sidemenuToggle'>
           <img src={MenuIcon} alt='sidemenu toggle icon' />
         </div>
