@@ -4,6 +4,8 @@ import './SideMenuLink.scss'
 import AppointmentIcon from '../../assets/svg/appointment-icon.svg'
 import CalendarIcon from '../../assets/svg/side-calendar-icon.svg'
 import SettingsIcon from '../../assets/svg/settings-icon.svg'
+import { sideMenuActions } from '../../store/sideMenuSlice'
+import { useAppDispatch } from '../../store/hooks'
 
 export enum PathEnum {
   appointment = '/appointments',
@@ -26,8 +28,13 @@ type TSideMenuData = {
 
 function SideMenuLink({ path }: ISideMenuLinkProps) {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
   const isMenuStatusActive = () => {
     return window.location.pathname.includes(path) ? 'active' : 'not-active'
+  }
+  function navigateToGivenPathandCloseMenu() {
+    navigate(`/dashboard${path}`)
+    dispatch(sideMenuActions.setOpenStatus(false))
   }
   const sideMenuData: TSideMenuData = {
     '/appointments': {
@@ -46,7 +53,7 @@ function SideMenuLink({ path }: ISideMenuLinkProps) {
   return (
     <div
       className={`SideMenuLink ${isMenuStatusActive()}`}
-      onClick={() => navigate(`/dashboard${path}`)}
+      onClick={navigateToGivenPathandCloseMenu}
     >
       <img src={sideMenuData[path].icon} alt='' /> <span>{sideMenuData[path].name}</span>
     </div>
