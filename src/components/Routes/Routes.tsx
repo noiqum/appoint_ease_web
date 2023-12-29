@@ -6,6 +6,7 @@ import RegisterPage from '../../pages/RegisterPage'
 import DashBoardPage from '../../pages/DashBoardPage'
 import Appointments from '../Appointments/Appointments'
 import Arrange from '../Arrange/Arrange'
+import Settings from '../Settings/Settings'
 
 const Routes = () => {
   const location = useLocation()
@@ -18,6 +19,7 @@ const Routes = () => {
         <Route path='/dashboard' element={<DashBoardPage />}>
           <Route path='appointments' element={<Appointments />} />
           <Route path='calendar' element={<Arrange />} />
+          <Route path='settings' element={<Settings />} />
         </Route>
       </RouterRoutes>
     </AnimatePresence>
