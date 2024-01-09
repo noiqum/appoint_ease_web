@@ -1,9 +1,10 @@
 import React from 'react'
 import { DashBoardNav } from '../DashBoardNav/DashBoardNav'
+import './Appointments.scss'
 
 function Appointments() {
   return (
-    <div>
+    <div className='Appointments'>
       <DashBoardNav />
     </div>
   )
