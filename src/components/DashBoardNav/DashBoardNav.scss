@@ -1,8 +1,14 @@
 .DashBoardNav {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
   &__title {
     color: #343a4a;
     font-weight: 700;
@@ -10,8 +16,25 @@
     line-height: 1.25;
   }
   &__buttons {
+    display: flex;
+    margin-top: 0.5rem;
+    @media screen and (max-width: 376px) {
+      flex-wrap: wrap;
+      & > button {
+        margin-top: 0.5rem;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      margin-top: unset;
+    }
+    & > button {
+      white-space: nowrap;
+    }
     & > button:not(:last-child) {
-      margin-right: 1rem;
+      margin-right: 0.5rem;
+      @media screen and (min-width: 768px) {
+        margin-right: 1rem;
+      }
     }
   }
 }
