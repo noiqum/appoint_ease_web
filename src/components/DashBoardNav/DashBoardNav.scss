@@ -38,3 +38,42 @@
     }
   }
 }
+.DropdownMenuContent {
+  border: 0 solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.3125rem;
+  box-shadow:
+    0 0.125rem 0.375rem #33383e42,
+    0 0.0625rem 0.125rem #8a919991;
+  color: #212529;
+
+  & div[role='separator'] {
+    margin: 0.25rem 0;
+    border-top: 1px solid #dee2e6;
+    &:hover {
+      background-color: #1e9bff;
+      color: white;
+    }
+  }
+
+  & .DropdownMenuSection {
+    color: #6c757d;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  & .DropdownMenuItem {
+    color: #212529;
+    font-size: 0.875rem;
+    font-weight: 400;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    outline: none;
+    &:hover {
+      background-color: #1e9bff;
+      color: white;
+    }
+  }
+}
