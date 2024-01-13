@@ -6,13 +6,16 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/index'
 import Routes from './components/Routes/Routes'
+import { ModalWrapper } from './components/ModalWrapper/ModalWrapper'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter basename='/'>
-        <Routes />
+        <ModalWrapper>
+          <Routes />
+        </ModalWrapper>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

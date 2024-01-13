@@ -1,0 +1,15 @@
+.modal-wrapper {
+  position: relative;
+  z-index: 100;
+  &.close {
+    display: block;
+  }
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.301);
+  }
+}
