@@ -1,15 +1,18 @@
 import React from 'react'
 import './DashBoardNav.scss'
-import { useAppSelector } from '../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { RootState } from '../../store/index'
 import { Button } from '../Button/Button'
 import ExternalLinkIcon from '../../assets/svg/external-link.svg'
 import ShareLinkIcon from '../../assets/svg/share-link.svg'
 import PlusIcon from '../../assets/svg/plus.svg'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { setModalElement, setOpenStatus } from '../../store/modalSlice'
+import { AppointmentModal } from '../AppointmentModal/AppointmentModal'
 
 export const DashBoardNav = () => {
   const user = useAppSelector((state: RootState) => state.auth.user)
+  const dispatch = useAppDispatch()
   return (
     <div className='DashBoardNav'>
       <div className='DashBoardNav__title'>
@@ -35,7 +38,15 @@ export const DashBoardNav = () => {
             </DropdownMenu.Content>
           </DropdownMenu.Portal>
         </DropdownMenu.Root>
-        <Button icon={PlusIcon} variant='green' label='Create New'></Button>
+        <Button
+          onClick={() => {
+            dispatch(setModalElement(<AppointmentModal />))
+            dispatch(setOpenStatus(true))
+          }}
+          icon={PlusIcon}
+          variant='green'
+          label='Create New'
+        ></Button>
       </div>
     </div>
   )
