@@ -8,6 +8,8 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '../Input/Input'
 import './AppointmentModal.scss'
+import { useAppDispatch } from '../../store/hooks'
+import modalSlice from '../../store/modalSlice'
 
 const formSchema = z.object({
   name: z
@@ -17,6 +19,7 @@ const formSchema = z.object({
     .nonempty('Appointment name is required'),
 })
 export const AppointmentModal = () => {
+  const dispatch = useAppDispatch()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,7 +38,10 @@ export const AppointmentModal = () => {
         }}
         className='AppointmentModal__box'
       >
-        <span className='AppointmentModal__closeIcon'>
+        <span
+          onClick={() => dispatch(modalSlice.actions.setOpenStatus(false))}
+          className='AppointmentModal__closeIcon'
+        >
           <img src={X} alt='close_modal_icon' />
         </span>
         <div className='AppointmentModal__image'>
