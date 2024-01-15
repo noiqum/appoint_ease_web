@@ -1,4 +1,8 @@
 .AppointmentModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,11 +11,55 @@
   height: 100%;
   padding: 1rem;
   &__box {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex: 1;
     padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 12px 35px rgba(30, 155, 255, 0.14);
+    @media screen and (min-width: 768px) {
+      max-width: 60%;
+    }
+    @media screen and (min-width: 1024px) {
+      max-width: 40%;
+    }
+  }
+  &__closeIcon {
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+  }
+  &__text {
+    text-align: center;
+    & > h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #343a4a;
+    }
+    & > p {
+      font-size: 0.875rem;
+    }
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 1rem;
+    & > label {
+      font-size: 1.15rem;
+    }
+    & > input {
+      margin-top: 0.5rem;
+    }
+    & > button {
+      margin-top: 1rem;
+    }
   }
 }
