@@ -62,7 +62,7 @@ export const AppointmentModal = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder='Name' {...field} />
+                      <Input autoFocus placeholder='Name' {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
