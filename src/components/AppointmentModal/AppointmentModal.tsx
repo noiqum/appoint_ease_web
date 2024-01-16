@@ -8,8 +8,11 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '../Input/Input'
 import './AppointmentModal.scss'
-import { useAppDispatch } from '../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import modalSlice from '../../store/modalSlice'
+import { RootState } from '../../store/index'
+import { TAppointmentRequest } from '../../Api/ServiceType'
+import { createAppointment } from '../../Api/Services'
 
 const formSchema = z.object({
   name: z
@@ -20,6 +23,7 @@ const formSchema = z.object({
 })
 export const AppointmentModal = () => {
   const dispatch = useAppDispatch()
+  const user = useAppSelector((state: RootState) => state.auth.user)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,8 +32,24 @@ export const AppointmentModal = () => {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    const name = values.name
+    const appointment: TAppointmentRequest = {
+      name,
+      description: '',
+      link: '',
+      length: 30,
+      period: 'min',
+      color: '#1e9bff',
+      user: user?._id || '',
+    }
+    try {
+      const newAppointment = await createAppointment(appointment).then((res) => res)
+      console.log(newAppointment)
+    } catch (error) {
+      console.log(error)
+    }
   }
+
   return (
     <div className='AppointmentModal'>
       <div

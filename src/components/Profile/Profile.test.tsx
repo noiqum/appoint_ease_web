@@ -17,6 +17,7 @@ describe('profile', () => {
               createdAt: '',
               updatedAt: '',
               __v: 1,
+              accessToken: '',
             },
             isLogin: true,
           },
