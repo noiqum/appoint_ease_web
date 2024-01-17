@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalWrapper renders 1`] = `
+<DocumentFragment>
+  <div
+    class="modal-wrapper close"
+  />
+</DocumentFragment>
+`;
