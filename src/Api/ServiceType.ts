@@ -38,3 +38,28 @@ export type TAppointmentRequest = {
     | '#f1c40f'
     | '#8a9199'
 }
+
+export type TAppointmentResponse = {
+  user: string
+  name: string
+  description: string
+  link: string
+  length: number
+  period: 'min' | 'hour'
+  color:
+    | '#1e9bff'
+    | '#2980b9'
+    | '#0ed70a'
+    | '#009432'
+    | '#c40404'
+    | '#ed4c67'
+    | '#fa8a1a'
+    | '#851eff'
+    | '#d980fa'
+    | '#f1c40f'
+    | '#8a9199'
+  _id: string
+  createdAt: string
+  updatedAt: string
+  __v: number
+}

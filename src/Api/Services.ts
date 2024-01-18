@@ -1,5 +1,11 @@
 import { store } from '../store'
-import { TAppointmentRequest, TLoginRequest, TloginResponse, TRegisterRequest } from './ServiceType'
+import {
+  TAppointmentRequest,
+  TAppointmentResponse,
+  TLoginRequest,
+  TloginResponse,
+  TRegisterRequest,
+} from './ServiceType'
 import axios from 'axios'
 const baseUrl: string = 'https://appoint-ease-api.onrender.com'
 
@@ -34,7 +40,7 @@ export const register = (info: TRegisterRequest) => {
 }
 
 export const createAppointment = (info: TAppointmentRequest) => {
-  return new Promise<TloginResponse>((resolve, reject) => {
+  return new Promise<TAppointmentResponse>((resolve, reject) => {
     const url: string = `${baseUrl}/api/appointment/create`
     const body = {
       ...info,
