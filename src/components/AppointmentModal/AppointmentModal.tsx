@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import X from '../../assets/svg/x.svg'
 import NewAppointmentVisual from '../../assets/svg/new-one.svg'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../Form/Form'
@@ -22,6 +22,7 @@ const formSchema = z.object({
     .nonempty('Appointment name is required'),
 })
 export const AppointmentModal = () => {
+  const [serviceCallProcess, setProcess] = useState<boolean>(false)
   const dispatch = useAppDispatch()
   const user = useAppSelector((state: RootState) => state.auth.user)
   const form = useForm<z.infer<typeof formSchema>>({
@@ -43,10 +44,15 @@ export const AppointmentModal = () => {
       user: user?._id || '',
     }
     try {
+      setProcess(true)
       const newAppointment = await createAppointment(appointment).then((res) => res)
-      console.log(newAppointment)
+      if (newAppointment) {
+        dispatch(modalSlice.actions.setOpenStatus(false))
+      }
     } catch (error) {
       console.log(error)
+    } finally {
+      setProcess(false)
     }
   }
 
@@ -88,9 +94,18 @@ export const AppointmentModal = () => {
                   </FormItem>
                 )}
               />
-              <Button variant='green' label='Create New Appointment' type='submit'>
-                Submit
-              </Button>
+              {serviceCallProcess ? (
+                <Button
+                  loader={true}
+                  variant='green'
+                  label='Create New Appointment'
+                  disabled
+                ></Button>
+              ) : (
+                <Button variant='green' label='Create New Appointment' type='submit'>
+                  Submit
+                </Button>
+              )}
             </form>
           </Form>
           <label htmlFor='appointment-name'></label>
