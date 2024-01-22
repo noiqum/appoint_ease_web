@@ -1,0 +1,19 @@
+.AppointmentCard {
+  display: flex;
+  flex-direction: column;
+  min-height: 224px;
+  box-shadow: 0 0.0625rem 0.125rem #0000000a;
+
+  &__info {
+    display: flex;
+    &__circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      margin-right: 0.5rem;
+    }
+  }
+}
