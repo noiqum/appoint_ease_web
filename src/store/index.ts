@@ -2,11 +2,13 @@ import { configureStore, combineReducers, PreloadedState } from '@reduxjs/toolki
 import { authSlice } from './authSlice'
 import { sideMenuSlice } from './sideMenuSlice'
 import modalSlice from './modalSlice'
+import appointmentSlice from './appointmentSlice'
 
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
   sidemenu: sideMenuSlice.reducer,
   modal: modalSlice.reducer,
+  appointment: appointmentSlice.reducer,
 })
 
 export function setupStore(preloadedState: PreloadedState<RootState>) {

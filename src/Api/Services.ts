@@ -51,3 +51,13 @@ export const createAppointment = (info: TAppointmentRequest) => {
       .catch((err) => reject(err))
   })
 }
+
+export const getUserAppointments = (user: string) => {
+  return new Promise<TAppointmentResponse[]>((resolve, reject) => {
+    const url: string = `${baseUrl}/api/appointment/${user}`
+    axios
+      .get(url, { headers: { Authorization: `Bearer ${getAccessToken()}` } })
+      .then((resp) => resolve(resp.data))
+      .catch((err) => reject(err))
+  })
+}
