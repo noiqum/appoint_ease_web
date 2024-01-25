@@ -3,9 +3,35 @@
   flex-direction: column;
   min-height: 224px;
   box-shadow: 0 0.0625rem 0.125rem #0000000a;
-
+  border: 0.0625rem solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.3125rem;
+  cursor: pointer;
   &__info {
     display: flex;
+    padding: 1rem;
+    flex: 1;
+    flex-direction: column;
+    &__title {
+      display: flex;
+      & > span {
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+    }
+    &__period {
+      display: flex;
+      margin-top: 0.5rem;
+
+      & > span {
+        margin-right: 0.5rem;
+      }
+    }
+    &__period {
+      color: #adb5bd;
+    }
+    &__description {
+      color: #adb5bd;
+    }
     &__circle {
       display: flex;
       justify-content: center;
@@ -15,5 +41,19 @@
       border-radius: 999px;
       margin-right: 0.5rem;
     }
+    &__description {
+      flex: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      word-break: break-all;
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top: 0.0625rem solid rgba(0, 0, 0, 0.125);
+    align-items: center;
+    background-color: #e0e2e51a;
   }
 }

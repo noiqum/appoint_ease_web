@@ -2,6 +2,7 @@ import { RootState } from '../../store/index'
 import { useAppSelector } from '../../store/hooks'
 import React from 'react'
 import AppointmentCard from '../AppointmentCard/AppointmentCard'
+import './List.scss'
 
 function List() {
   const AppointmentList = useAppSelector((state: RootState) => state.appointment.list)

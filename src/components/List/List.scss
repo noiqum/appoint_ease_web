@@ -1,0 +1,18 @@
+.List {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 1.5rem;
+  overflow-y: auto;
+  margin-top: 3vh;
+
+  & > div {
+    grid-column: span 12;
+
+    @media screen and (min-width: 768px) {
+      grid-column: span 6;
+    }
+    @media screen and (min-width: 1024px) {
+      grid-column: span 3;
+    }
+  }
+}
