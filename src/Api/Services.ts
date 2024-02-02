@@ -61,3 +61,18 @@ export const getUserAppointments = (user: string) => {
       .catch((err) => reject(err))
   })
 }
+
+export const deleteAppointment = (id: string) => {
+  return new Promise<void>((resolve, reject) => {
+    const url: string = `${baseUrl}/api/appointment/delete`
+    const body = {
+      id,
+    }
+    axios
+      .delete(url, { data: body, headers: { Authorization: `Bearer ${getAccessToken()}` } })
+      .then((resp) => {
+        resolve(resp.data)
+      })
+      .catch((err) => reject(err))
+  })
+}
