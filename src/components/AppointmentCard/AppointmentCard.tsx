@@ -8,12 +8,17 @@ import More from '../../assets/svg/more-horizontal.svg'
 import Edit from '../../assets/svg/edit.svg'
 import Delete from '../../assets/svg/delete.svg'
 import ExternalLink from '../../assets/svg/external-black.svg'
+import { useAppDispatch } from '../../store/hooks'
+import { setSelectedAppointment } from '../../store/appointmentSlice'
+import { setModalElement, setOpenStatus } from '../../store/modalSlice'
+import { DeleteModal } from '../DeleteModal/DeleteModal'
 
 interface IAppointmentCardProps {
   appointment: TAppointmentResponse
 }
 
 function AppointmentCard({ appointment }: IAppointmentCardProps) {
+  const dispatch = useAppDispatch()
   return (
     <div className='AppointmentCard'>
       <div className='AppointmentCard__info'>
@@ -56,7 +61,9 @@ function AppointmentCard({ appointment }: IAppointmentCardProps) {
                 <DropdownMenu.Item
                   className='DropdownMenuItem'
                   onClick={() => {
-                    console.log('Delete')
+                    dispatch(setSelectedAppointment(appointment))
+                    dispatch(setOpenStatus(true))
+                    dispatch(setModalElement(<DeleteModal />))
                   }}
                 >
                   <span className='mr-2'>
