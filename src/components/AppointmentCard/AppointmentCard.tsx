@@ -12,6 +12,7 @@ import { useAppDispatch } from '../../store/hooks'
 import { setSelectedAppointment } from '../../store/appointmentSlice'
 import { setModalElement, setOpenStatus } from '../../store/modalSlice'
 import { DeleteModal } from '../DeleteModal/DeleteModal'
+import { UpdateModal } from '../UpdateModal/UpdateModal'
 
 interface IAppointmentCardProps {
   appointment: TAppointmentResponse
@@ -52,7 +53,14 @@ function AppointmentCard({ appointment }: IAppointmentCardProps) {
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <DropdownMenu.Content className='DropdownMenuContent' sideOffset={5}>
-                <DropdownMenu.Item className='DropdownMenuItem'>
+                <DropdownMenu.Item
+                  onClick={() => {
+                    dispatch(setSelectedAppointment(appointment))
+                    dispatch(setOpenStatus(true))
+                    dispatch(setModalElement(<UpdateModal />))
+                  }}
+                  className='DropdownMenuItem'
+                >
                   <span className='mr-2'>
                     <img src={Edit} alt='edit' />
                   </span>
