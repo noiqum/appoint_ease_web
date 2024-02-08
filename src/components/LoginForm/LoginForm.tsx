@@ -45,7 +45,7 @@ export function LoginForm() {
       password: values.password,
     })
       .then((res) => res)
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
       .finally(() => setProcess(false))
 
     if (user) {
