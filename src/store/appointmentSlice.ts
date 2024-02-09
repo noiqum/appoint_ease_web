@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { TAppointmentResponse } from '../Api/ServiceType'
 
-interface TinitialAppointmentState {
+export interface TinitialAppointmentState {
   list: TAppointmentResponse[]
   selected: TAppointmentResponse | null
 }
