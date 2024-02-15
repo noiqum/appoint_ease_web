@@ -12,4 +12,16 @@ describe('Login', () => {
     cy.get("button[type='submit']").click()
     cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/dashboard')
   })
+  it('should login with valid credentials and redirect to dashboard in desktop', () => {
+    cy.viewport(1440, 900)
+    cy.visit('/')
+    cy.get('.navigation__menu').within(() => {
+      cy.get('a[href="/login"]').click()
+    })
+
+    cy.get("input[name='email']").type('mike@gmail.com')
+    cy.get("input[name='password']").type('test1234')
+    cy.get("button[type='submit']").click()
+    cy.url({ timeout: 10000 }).should('eq', 'http://localhost:3000/dashboard')
+  })
 })
