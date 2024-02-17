@@ -5,6 +5,11 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { RootState } from '../../store/index'
 import modalSlice from '../../store/modalSlice'
 import * as Tabs from '@radix-ui/react-tabs'
+import { Label } from '../Label/Label'
+import { Input } from '../Input/Input'
+import { Textarea } from '../TextArea/TextArea'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../Select/Select'
+
 export const UpdateModal = () => {
   const dispatch = useAppDispatch()
   const selectedAppointment = useAppSelector((state: RootState) => state.appointment.selected)
@@ -47,7 +52,30 @@ export const UpdateModal = () => {
               </Tabs.Trigger>
             </Tabs.List>
             <Tabs.Content className='UpdateModal__main__content' value='general'>
-              General
+              <Label>Appointment Name</Label>
+              <Input value={selectedAppointment?.name}></Input>
+              <Label>Description</Label>
+              <Textarea value={selectedAppointment?.description}></Textarea>
+              <Label>Length</Label>
+              <div>
+                <Input type='number' value={selectedAppointment?.length}></Input>
+                <Select>
+                  <SelectTrigger className='SelectTrigger'>
+                    <SelectValue
+                      className='SelectValue'
+                      placeholder={selectedAppointment?.period}
+                    ></SelectValue>
+                  </SelectTrigger>
+                  <SelectContent className='SelectContent'>
+                    <SelectItem className='SelectItem' value='hour'>
+                      Hour
+                    </SelectItem>
+                    <SelectItem className='SelectItem' value='min'>
+                      Min
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </Tabs.Content>
             <Tabs.Content className='UpdateModal__main__content' value='availability'>
               Availability
