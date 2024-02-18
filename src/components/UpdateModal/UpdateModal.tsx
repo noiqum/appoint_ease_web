@@ -8,7 +8,7 @@ import * as Tabs from '@radix-ui/react-tabs'
 import { Label } from '../Label/Label'
 import { Input } from '../Input/Input'
 import { Textarea } from '../TextArea/TextArea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../Select/Select'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const UpdateModal = () => {
   const dispatch = useAppDispatch()
@@ -59,23 +59,31 @@ export const UpdateModal = () => {
               <Label>Length</Label>
               <div>
                 <Input type='number' value={selectedAppointment?.length}></Input>
-                <Select>
-                  <SelectTrigger className='SelectTrigger'>
-                    <SelectValue
-                      className='SelectValue'
-                      placeholder={selectedAppointment?.period}
-                    ></SelectValue>
-                  </SelectTrigger>
-                  <SelectContent className='SelectContent'>
-                    <SelectItem className='SelectItem' value='hour'>
-                      Hour
-                    </SelectItem>
-                    <SelectItem className='SelectItem' value='min'>
-                      Min
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
               </div>
+              <Label>Period</Label>
+              <RadioGroup.Root
+                className='RadioGroupRoot'
+                defaultValue={selectedAppointment?.period}
+              >
+                <RadioGroup.Item
+                  checked={selectedAppointment?.period === 'min'}
+                  className='RadioGroupItem'
+                  value='min'
+                  id='min'
+                >
+                  Min
+                  <RadioGroup.Indicator className='RadioGroupIndicator' />
+                </RadioGroup.Item>
+                <RadioGroup.Item
+                  checked={selectedAppointment?.period === 'hour'}
+                  className='RadioGroupItem'
+                  value='hour'
+                  id='hour'
+                >
+                  Hour
+                  <RadioGroup.Indicator className='RadioGroupIndicator' />
+                </RadioGroup.Item>
+              </RadioGroup.Root>
             </Tabs.Content>
             <Tabs.Content className='UpdateModal__main__content' value='availability'>
               Availability
