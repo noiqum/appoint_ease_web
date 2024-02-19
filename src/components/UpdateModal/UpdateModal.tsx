@@ -71,8 +71,10 @@ export const UpdateModal = () => {
                   value='min'
                   id='min'
                 >
+                  <span className='RadioGroupItem__circle'>
+                    <span className='RadioGroupItem__circle__inner'></span>
+                  </span>
                   Min
-                  <RadioGroup.Indicator className='RadioGroupIndicator' />
                 </RadioGroup.Item>
                 <RadioGroup.Item
                   checked={selectedAppointment?.period === 'hour'}
@@ -80,8 +82,10 @@ export const UpdateModal = () => {
                   value='hour'
                   id='hour'
                 >
+                  <span className='RadioGroupItem__circle'>
+                    <span className='RadioGroupItem__circle__inner'></span>
+                  </span>
                   Hour
-                  <RadioGroup.Indicator className='RadioGroupIndicator' />
                 </RadioGroup.Item>
               </RadioGroup.Root>
             </Tabs.Content>

@@ -29,6 +29,13 @@
         border-bottom: 1px solid #2ecc71;
       }
     }
+    &__content {
+      & > label {
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+        font-weight: 700;
+      }
+    }
     &__content[data-state='inactive'] {
       display: none;
     }
@@ -50,5 +57,38 @@
     flex-shrink: 0;
     display: flex;
     border-bottom: 1px solid var(--mauve-6);
+  }
+  .RadioGroupRoot {
+    display: flex;
+    padding: 1rem 0;
+  }
+  .RadioGroupItem {
+    display: flex;
+    margin-right: 1rem;
+    &__circle {
+      background-color: #212529;
+      border-radius: 100%;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0.5rem;
+      &__inner {
+        display: flex;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 100%;
+        background-color: white;
+        transition: 0.2s;
+      }
+    }
+    &[data-state='checked'] {
+      .RadioGroupItem__circle {
+        &__inner {
+          background-color: #2ecc71;
+        }
+      }
+    }
   }
 }
