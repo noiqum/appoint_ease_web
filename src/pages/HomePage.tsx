@@ -4,6 +4,7 @@ import Transition from '../components/Transition/Transition'
 import Hero from '../components/Hero/Hero'
 import './HomePage.scss'
 import SetupSection from '../components/SetupSection/SetupSection'
+import { Footer } from '../components/Footer/Footer'
 export default function HomePage() {
   return (
     <Transition>
@@ -11,6 +12,7 @@ export default function HomePage() {
         <Navigation />
         <Hero />
         <SetupSection />
+        <Footer />
       </div>
     </Transition>
   )
