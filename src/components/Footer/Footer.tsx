@@ -11,6 +11,7 @@ export const Footer = () => {
         <div className='Footer__content__text'>
           The simple and affordable way to book meetings online
         </div>
+        <div className='Footer__content__social'></div>
       </div>
       <div className='Footer__links'></div>
     </footer>
