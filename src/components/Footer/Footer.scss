@@ -8,4 +8,9 @@
   @media screen and (min-width: 1024px) {
     flex-direction: row;
   }
+  &__content__social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
