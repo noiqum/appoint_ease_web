@@ -71,12 +71,12 @@ export const Footer = () => {
         <div className='Footer__links__column'>
           <h5 className='Footer__links__column__head'>Company</h5>
           <ul>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'>About</li>
+            <li className='Footer__links__column__item'>Blog</li>
+            <li className='Footer__links__column__item'>Support</li>
+            <li className='Footer__links__column__item'>Help Center</li>
+            <li className='Footer__links__column__item'>Affiliate Program</li>
+            <li className='Footer__links__column__item'>Partnerships</li>
           </ul>
         </div>
         <div className='Footer__links__column'>
