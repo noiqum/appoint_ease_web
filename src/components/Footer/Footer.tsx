@@ -82,10 +82,10 @@ export const Footer = () => {
         <div className='Footer__links__column'>
           <h5 className='Footer__links__column__head'>Integrations</h5>
           <ul>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
-            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'>Google Calendar</li>
+            <li className='Footer__links__column__item'>Office 365</li>
+            <li className='Footer__links__column__item'>Zoom</li>
+            <li className='Footer__links__column__item'>View All</li>
           </ul>
         </div>
       </div>

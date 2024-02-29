@@ -17,6 +17,7 @@
     flex-basis: 100%;
     color: #324682;
     font-weight: 500;
+    align-self: flex-start;
     &__brand {
       display: flex;
       align-items: baseline;
@@ -67,6 +68,7 @@
       flex-basis: 100%;
       @media screen and (min-width: 1024px) {
         flex-basis: 25%;
+        margin-left: auto;
       }
       &__head {
         margin-bottom: 0.5rem;
