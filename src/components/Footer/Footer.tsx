@@ -44,7 +44,51 @@ export const Footer = () => {
           </a>
         </div>
       </div>
-      <div className='Footer__links'></div>
+      <div className='Footer__links'>
+        <div className='Footer__links__column'>
+          <h5 className='Footer__links__column__head'>General</h5>
+          <ul>
+            <li className='Footer__links__column__item'>Teams</li>
+            <li className='Footer__links__column__item'>Features</li>
+            <li className='Footer__links__column__item'>Pricing</li>
+            <li className='Footer__links__column__item'>Login</li>
+            <li className='Footer__links__column__item'>Start Free</li>
+          </ul>
+        </div>
+        <div className='Footer__links__column'>
+          <h5 className='Footer__links__column__head'>Use Cases</h5>
+          <ul>
+            <li className='Footer__links__column__item'>Education</li>
+            <li className='Footer__links__column__item'>Retail Services</li>
+            <li className='Footer__links__column__item'>Health & Wellness</li>
+            <li className='Footer__links__column__item'>Legal & Financial</li>
+            <li className='Footer__links__column__item'>Recruiting & HR</li>
+            <li className='Footer__links__column__item'>Property Management</li>
+            <li className='Footer__links__column__item'>Sales & Marketing</li>
+            <li className='Footer__links__column__item'>Customer Success</li>
+          </ul>
+        </div>
+        <div className='Footer__links__column'>
+          <h5 className='Footer__links__column__head'>Company</h5>
+          <ul>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+          </ul>
+        </div>
+        <div className='Footer__links__column'>
+          <h5 className='Footer__links__column__head'>Integrations</h5>
+          <ul>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+            <li className='Footer__links__column__item'></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   )
 }

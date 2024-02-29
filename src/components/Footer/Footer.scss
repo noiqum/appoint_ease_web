@@ -58,6 +58,38 @@
     flex-direction: column;
     @media screen and (min-width: 1024px) {
       flex: 1;
+      flex-direction: row;
+      margin-left: 3rem;
+    }
+    &__column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      @media screen and (min-width: 1024px) {
+        flex-basis: 25%;
+      }
+      &__head {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 1.25rem;
+        color: #a1a4bb;
+        @media screen and (min-width: 1024px) {
+          margin-bottom: 1rem;
+        }
+      }
+      &__item {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 1.15rem;
+        color: #324682;
+        cursor: pointer;
+        &:hover {
+          color: #2a9dfc;
+        }
+        @media screen and (min-width: 1024px) {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
 }
